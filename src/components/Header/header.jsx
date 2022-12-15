@@ -23,6 +23,7 @@ export default ({user, setUser, products, setModalActive}) => {
         
     }
     return <div className="header__wrapper">
+        <div className="container__wrapper">
         <header className="header container">
      <a className="logo" href="">Dog food</a>
      <Search data={products}/>
@@ -33,5 +34,6 @@ export default ({user, setUser, products, setModalActive}) => {
         {user && <a href="" onClick={logOut}>Выйти</a>}
      </nav>
     </header>
+        </div>
     </div> 
 }

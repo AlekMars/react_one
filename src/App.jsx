@@ -27,8 +27,9 @@ const App = () => {
            <main>
             {user ? <Catalog data = {products}/> : <Home data= {smiles}/>}
             </main>
-        <Footer/>
+        
     </div>
+    <Footer/>
     <Modal isActive ={modalActive} setState = {setModalActive}/>
     </>
     )

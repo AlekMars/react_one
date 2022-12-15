@@ -1,9 +1,23 @@
- footer {
+ .footer__wrapper {
+     width: 100%;
+   
+    
+ }
+ .container__wrapp {
+     padding: 0 30px;
+     /* background-color: #222; */
+     
+
+ }
+ 
+ 
+ .footer {
     background-color: #222;
     color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* width: 100vw; */
  }
  .footer_copy {
     font-size: 1.5em;
