@@ -13,12 +13,19 @@ import Product from "./pages/Product";
 import Ctx from "./Ctx";
 
 import { Api } from "./Api";
+const PATH = "/";
+//const PATH = "/react_one/";
+
 
 const smiles = ["^_^","o_O","=)",";)",";(","^_O"];
 
 
 const App = () => {
-   const [user, setUser] = useState(localStorage.getItem("user1"));
+   let usr = localStorage.getItem("user1");
+   if (usr) {
+      usr = JSON.parse(usr);
+   }
+   const [user, setUser] = useState(usr);
    const [token, setToken] = useState(localStorage.getItem("token8"));
    const [modalActive, setModalActive] = useState(false);
    const [api, setApi] = useState(new Api(token));
@@ -39,9 +46,14 @@ const App = () => {
       
    }, [])
    useEffect(() => {
+      
       console.log("Change token");
       setApi(new Api(token));
-      setUser(localStorage.getItem("user1"));
+      let usr = localStorage.getItem("user1");
+      if (usr) {
+         usr = JSON.parse(usr);
+      }
+      setUser(usr);
    }, [token])
 
    useEffect(() => {
@@ -71,33 +83,37 @@ const App = () => {
       user: user,
       token: token,
       api: api,
+      modalActive: modalActive,
+      goods: goods,
+      visibleGoods: visibleGoods,
+
       setUser: setUser,
       setToken: setToken,
-      setApi: setApi
+      setApi: setApi,
+      setModalActive: setModalActive,
+      setGoods: setGoods,
+      setVisibleGoods: setVisibleGoods,
+      PATH: PATH
+
     }}>
-    <Header 
-           
-           goods={goods}
-           searchGoods={setVisibleGoods}
-           setModalActive ={setModalActive}
-           />
+    <Header  />
         <div className="container">
            
            <main>
             {/* {user ? <Catalog data = {goods}/> : <Home data= {smiles}/>} */}
            <Routes>
-            <Route path ="/" element={<Home data={smiles}/>}/>
-            <Route path="/catalog" element={
-               <Catalog data={visibleGoods}/>}/>
-               <Route path="/profile" element={<Profile />}/>
-            <Route path="/catalog/:id" element={<Product/>}/>
+            <Route path ={PATH} element={<Home data={smiles}/>}/>
+            <Route path={PATH + "catalog"} element={
+               <Catalog data={smiles}/>}/>
+               <Route path={PATH + "profile"} element={<Profile />}/>
+            <Route path={PATH + "catalog/:id"} element={<Product/>}/>
 
            </Routes>
             </main>
         
     </div>
     <Footer/>
-    <Modal isActive ={modalActive} setState = {setModalActive} />
+    <Modal/>
     </Ctx.Provider>
     )
 }

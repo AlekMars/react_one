@@ -1,57 +1,34 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import {Link, useParams} from "react-router-dom";
 import Review from "../components/Review/review";
+import Ctx from "../Ctx";
 
 export default ({}) => {
     const {id} = useParams();
     const [product, setProduct] = useState({});
-    const [users, setUsers] = useState([]);
-    const [flag, changeFlag] = useState(!!users.length)
+    // const [flag, changeFlag] = useState(!!users.length)
 
-    let token = localStorage.getItem("token8");
+    const {token, api} = useContext(Ctx);
     useEffect(() => {
-        if(token) {
-            fetch(`https://api.react-learning.ru/products/${id}`,{
-                headers: {
-                    authorization: `Bearer ${token}`
-                  }
-
-            }).then(res => res.json()).then(data =>{ 
+        api.getProduct(id)
+            .then(res => res.json())
+            .then(data =>{ 
                 
                 setProduct(data);
             })
-            fetch(`https://api.react-learning.ru/v2/group-8/users`,{
-                headers: {
-                    authorization: `Bearer ${token}`
-                  }
+            // fetch(`https://api.react-learning.ru/v2/group-8/users`,{
+            //     headers: {
+            //         authorization: `Bearer ${token}`
+            //       }
 
-            }).then(res => res.json()).then(data =>{ 
+            // }).then(res => res.json()).then(data =>{ 
                 
-                setUsers(data);
-                console.log(data);
-            })
-            
-        }
+            //     setUsers(data);
+            //     console.log(data);
+            // })
 
     })
-    // useEffect(() => {
-    //     if(token && !flag) {
-        
-    //         fetch(`https://api.react-learning.ru/v2/group-8/users`,{
-    //             headers: {
-    //                 authorization: `Bearer ${token}`
-    //               }
-
-    //         }).then(res => res.json()).then(data =>{ 
-                
-    //             changeFlag(!!users.length);
-    //             setUsers(data);
-    //             console.log(data);
-    //         })
-            
-    //     }
-
-    // }, [flag])
+    
  return <>
  <h1>{product.name || "Страница товара"}</h1>
  <p>{id}</p>
