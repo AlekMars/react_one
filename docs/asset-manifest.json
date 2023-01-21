@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/react_one/static/css/main.20056b90.css",
+    "main.js": "/react_one/static/js/main.e8513ce7.js",
+    "static/media/pic.jpg": "/react_one/static/media/pic.d968868df6823223ae8f.jpg",
+    "static/media/dogs.png": "/react_one/static/media/dogs.3cabb26b86ee62ef4d78.png",
+    "index.html": "/react_one/index.html",
+    "static/media/circle-xmark-regular.svg": "/react_one/static/media/circle-xmark-regular.8ef6e0a127f37e5c70a1e4bb4cb92f32.svg",
+    "static/media/magnifying-glass-solid.svg": "/react_one/static/media/magnifying-glass-solid.06e310dbfbf3ab21da478aef6c037c14.svg",
+    "main.20056b90.css.map": "/react_one/static/css/main.20056b90.css.map",
+    "main.e8513ce7.js.map": "/react_one/static/js/main.e8513ce7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.20056b90.css",
+    "static/js/main.e8513ce7.js"
+  ]
+}

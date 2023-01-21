@@ -1,8 +1,11 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
+import { Link } from "react-router-dom";
 import Search from "../Search/search"
-import "./header.css"
+import "./header.css";
+import Ctx from "../../Ctx";
 
-export default ({user, setUser, products, setModalActive}) => {
+export default ({goods, searchGoods, setModalActive}) => {
+    const {user, setUser} = useContext(Ctx);
     // const [user, setUser] = useState(localStorage.getItem("user1"));
 
     // let user = localStorage.getItem("user1");
@@ -25,11 +28,11 @@ export default ({user, setUser, products, setModalActive}) => {
     return <div className="header__wrapper">
         <div className="container__wrapper">
         <header className="header container">
-     <a className="logo" href="">Dog food</a>
-     <Search data={products}/>
+     <Link className="logo" to="/">Dog food</Link>
+     <Search data={goods} searchGoods={searchGoods}/>
      {/* <input type="search" placeholder="Поиск..." className="search"/> */}
      <nav className="menu">
-        {user && <a href="">{user}</a>}
+        {user && <Link to="/profile">{user}</Link>}
         {!user&& <a href="" onClick={logIn}>Войти</a>}
         {user && <a href="" onClick={logOut}>Выйти</a>}
      </nav>

@@ -1,0 +1,65 @@
+import React, {useState, useEffect} from "react";
+import {Link, useParams} from "react-router-dom";
+import Review from "../components/Review/review";
+
+export default ({}) => {
+    const {id} = useParams();
+    const [product, setProduct] = useState({});
+    const [users, setUsers] = useState([]);
+    const [flag, changeFlag] = useState(!!users.length)
+
+    let token = localStorage.getItem("token8");
+    useEffect(() => {
+        if(token) {
+            fetch(`https://api.react-learning.ru/products/${id}`,{
+                headers: {
+                    authorization: `Bearer ${token}`
+                  }
+
+            }).then(res => res.json()).then(data =>{ 
+                
+                setProduct(data);
+            })
+            fetch(`https://api.react-learning.ru/v2/group-8/users`,{
+                headers: {
+                    authorization: `Bearer ${token}`
+                  }
+
+            }).then(res => res.json()).then(data =>{ 
+                
+                setUsers(data);
+                console.log(data);
+            })
+            
+        }
+
+    })
+    // useEffect(() => {
+    //     if(token && !flag) {
+        
+    //         fetch(`https://api.react-learning.ru/v2/group-8/users`,{
+    //             headers: {
+    //                 authorization: `Bearer ${token}`
+    //               }
+
+    //         }).then(res => res.json()).then(data =>{ 
+                
+    //             changeFlag(!!users.length);
+    //             setUsers(data);
+    //             console.log(data);
+    //         })
+            
+    //     }
+
+    // }, [flag])
+ return <>
+ <h1>{product.name || "Страница товара"}</h1>
+ <p>{id}</p>
+ <Link to="/catalog">Назад</Link>
+ <h2>Отзывы</h2>
+ <div className="reviews">
+    {product.reviews && product.reviews.length > 0 &&
+    product.reviews.map((el, i) => <Review {...el} key={i}/>)}
+ </div>
+ </>
+}

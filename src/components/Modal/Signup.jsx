@@ -1,12 +1,14 @@
-import { type } from "@testing-library/user-event/dist/type";
-import React, {useState} from "react";
+// import { type } from "@testing-library/user-event/dist/type";
+import React, {useState, useContext} from "react";
+import Ctx from "../../Ctx";
 
  
-export default ({change}) => {
+export default ({change,close}) => {
     const [inp1, setInp1] = useState("");
     const [inp2, setInp2] = useState("");
     const [inp3, setInp3] = useState("");
     const [testPwd, setTestPwd] = useState(true);
+    const {api, setToken, setUser} = useContext(Ctx);
 
     const checkPwd = (val, type= "main") => {
 
@@ -17,7 +19,7 @@ export default ({change}) => {
          setInp2(val)
         } else {
             setTestPwd(val !== inp2)
-            setInp3(val)
+            // setInp3(val)
         }
      }
     }
@@ -28,7 +30,30 @@ export default ({change}) => {
           email : inp1,
           password: inp2
         }
-       console.log(body) 
+       console.log(body);
+       api.signUp(body)
+       .then(res => res.json())
+       .then(data => {
+        console.log(data);
+        if (!data.err) {
+            api.signIn(body)
+            .then (res => res.json())
+            .then (data => {
+                localStorage.setItem("user1", data.data.name);
+                localStorage.setItem("token8", data.token);
+                setToken(data.token);
+                setUser(data.data.name);
+                
+            })
+              
+            setInp1("");
+            setInp2("");
+            setInp3("");
+            close(false);
+        } else {
+            alert(data.message);
+        }
+       })
     }
 
 

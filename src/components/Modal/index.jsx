@@ -13,7 +13,11 @@ export default ({isActive, setState}) => {
    <div className="modal">
 <div className="modal-close" onClick={() => setState(false)}/>
     <h2>{auth ? "Войти" : "Зарегистрироваться"}</h2>
-    {auth ? <Login change = {setAuth}/> : <Signup change = {setAuth}/>}
+    {auth 
+    ? 
+    <Login change = {setAuth}  close={setState} /> 
+    : 
+    <Signup change = {setAuth}  close={setState} />}
    </div>
 
     </div>
