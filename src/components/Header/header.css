@@ -6,18 +6,28 @@ background-color: rgb(243, 231, 5);
 }
 .container__wrapper {
     padding: 0 30px;
+    
 }
+
 .header {   
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     gap: 30px; 
      /* margin: 0 30px; */
      padding-top: 20px;
+    
      
+}
+.container {
+    overflow: hidden;
+    position: relative;
 }
 .logo {
     font-size: 1.5em;
+    position: relative;
+    top: -10px;
+   
 }
 
 .search {
@@ -30,6 +40,21 @@ background-color: rgb(243, 231, 5);
 }
 .menu {
     display: flex;
-    /* gap: 1em; */
+    gap: 1em;
     
+}
+.badge-link {
+    position: relative;
+}
+.badge {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 16px;
+    height: 16px;
+    font-size: 8px;
+    position: absolute;
+    top: -11px;
+    right: -8px;
 }

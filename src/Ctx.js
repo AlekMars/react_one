@@ -4,6 +4,9 @@ export default React.createContext({
     user: {},
     token: "",
     api: {},
+    favorites: [],
+    basket: [],
+
 
 
 
@@ -15,5 +18,7 @@ export default React.createContext({
     goods: [],
     setGoods: () => {},
     visibleGoods: [],
-    setVisibleGoods: () => {}
+    setVisibleGoods: () => {},
+    setFavorites: () => {},
+    setBasket: () => {}
 });

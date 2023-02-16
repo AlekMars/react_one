@@ -12,6 +12,8 @@
     overflow: hidden;
     z-index: 1;
     justify-content: space-between;
+    margin-top: 20px;
+    
 } 
 .promo:before {
     content: "";
@@ -22,9 +24,20 @@
     bottom: 0;
     background-color: #dededeaa;
     z-index: -1;
+    
 
 }
 
 .promo img {
     width: 200px;
+}
+.promo-text {
+    align-self: flex-start;
+    font-weight: 550;
+    color: rgb(80, 73, 73);
+}
+.promo-content {
+    align-self:flex-end;
+    font-size: 20px;
+    
 }

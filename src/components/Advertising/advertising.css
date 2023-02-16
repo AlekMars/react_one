@@ -1,0 +1,39 @@
+.promo-wrapper {
+display: flex;
+justify-content: space-between;
+margin-top: 30px;
+
+}
+.bannerOne {
+  min-width:430px;
+  min-height: 430px;
+  background-image: url("./img/bannerOne.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+  
+  
+}
+
+.bannerTwo {
+  min-height: 480px;
+  min-width: 450px;
+  background-image: url("./img/bannerTwo.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  bottom: -10px;
+
+  
+
+  
+}
+@media (max-width:1000px) {
+  .promo-wrapper {
+    flex-direction: column;
+  }
+  .bannerTwo {
+    background-size: 670px;
+    margin-bottom: 30px;
+  }
+  }

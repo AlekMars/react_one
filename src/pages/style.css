@@ -1,8 +1,113 @@
-.homeCard {
-    background-color: rgb(216, 207, 29);
-    width: 100%;
-    height: 200px;
+.productWrapper {
+    margin-top: 70px;
+   display: flex;
+   justify-content: space-between;
+}
+.blockWrapper {
+    width: 400px;
+    height: 420px;
+    background: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+   
+}
+.oneBlock {
+    width: 400px;
+    height: 140px;
+    border-radius: 10px;
+    background:rgba(169, 159, 173, 0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
     
-
     
 }
+.twoBlock {
+    width: auto;
+    height: 200px;
+    background:rgba(152, 145, 155, 0.1);
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+.truckIcons {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+
+}
+.trophyIcons {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+
+}
+.priceWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.priceDemo {
+    position: relative;
+    right: 300px;
+}
+.mySwiper  {
+    display: flex;
+    margin-top: 40px;
+    
+    
+
+}
+.profile-row {
+ display: flex;
+ align-items: center;
+ gap: 15px;
+
+}
+.profile-row svg {
+ cursor: pointer;
+ fill: silver;
+    
+}
+.profile-row svg:hover {
+    cursor: pointer;
+    fill: orange;
+       
+   }
+   .profile-row:not(:nth-child(2)) {
+    color: grey;
+   }
+.profile-row input {
+    max-width: 300px;
+}
+
+
+@media (max-width:800px) {
+    .productWrapper {
+        flex-direction: column;
+    }
+    .priceDemo {
+        display: none;
+    }
+    .mySwiper {
+        display: flex;
+        
+    
+        
+    }
+    
+ }

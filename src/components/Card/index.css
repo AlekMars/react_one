@@ -9,6 +9,10 @@
     gap: 1em;
     justify-content: center;
     align-items: center;
+    min-height: 290px;
+
+    
+    
 }
 .card_heart {
     position: absolute;

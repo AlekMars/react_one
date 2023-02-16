@@ -1,8 +1,9 @@
 import React, {useState, useContext} from "react";
 import "./style.css";
+import Ctx from "../../Ctx";
 import Signup from "./Signup";
 import Login from "./Login";
-import Ctx from "../../Ctx";
+
 
 export default () => {
     const [auth, setAuth] = useState(true);
