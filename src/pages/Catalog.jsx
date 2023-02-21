@@ -88,7 +88,7 @@ export default ({data}) => {
   {!user && <div className="empty-block">
     <EmojiFrown/>
     <p style={{width: 250}}>Простите, у вас нет доступа к товарам без авторизации</p>
-    <Link to={PATH} className="btn">На главную</Link>
+    <Link to={PATH} ><button className="btn">На главную</button></Link>
     
     </div> }
     </>

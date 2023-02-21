@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import Card from "../components/Card";
+import Homecard from "../components/Homecard";
 import "./style.css";
 import Ads from "../components/Ads/ads";
 import Advertising from "../components/Advertising/advertising";
@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Ctx from "../Ctx";
 import food from "../assets/data.json";
+import Fake from "./Fake";
 
 
 import "swiper/css/bundle";
@@ -23,7 +24,7 @@ import { Pagination, Navigation} from "swiper";
 
 export default ({data}) => {
   const {visibleGoods} = useContext(Ctx);
-  // console.log(visibleGoods);
+  console.log(visibleGoods);
     return <>
     <h1>Главная страница</h1>
     <Link to="/catalog"><button className="btn">Перейти в каталог</button></Link>
@@ -46,7 +47,7 @@ export default ({data}) => {
       
          {food.slice(0,12).map((el, i ) => (
           <SwiperSlide key={el._id}><Link to={`/catalog/${el._id}`} key={el._id}>
-          <Card key={"card_" + i} {...el}/> 
+          <Homecard key={"card_" + i} {...el}/> 
           </Link></SwiperSlide>
 
          ))}

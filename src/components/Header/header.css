@@ -1,10 +1,13 @@
 .header__wrapper {
-width: 100%;
+width: 100vw;
 height: 80px;
 background-color: rgb(243, 231, 5);
 
+
+
 }
 .container__wrapper {
+    width: 100%;
     padding: 0 30px;
     
 }
@@ -14,7 +17,7 @@ background-color: rgb(243, 231, 5);
     justify-content: space-between;
     align-items: flex-start;
     gap: 30px; 
-     /* margin: 0 30px; */
+      /* margin: 0 30px; */ 
      padding-top: 20px;
     
      
@@ -51,10 +54,10 @@ background-color: rgb(243, 231, 5);
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    width: 16px;
-    height: 16px;
-    font-size: 8px;
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
     position: absolute;
-    top: -11px;
+    bottom: -10px;
     right: -8px;
 }

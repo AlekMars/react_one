@@ -6,7 +6,7 @@ import Ctx from "../../Ctx";
 
 
 
-export default ({name, pictures, price, likes, _id}) => {
+export default ({name, pictures, price, likes, _id, discount, description, wight, discount_price, stock}) => {
     const {user, setFavorites, api, setGoods, setBasket, setVisibleGoods} = useContext(Ctx);
     
     const [like, setLike] = useState(likes && likes.includes(user._id));
@@ -74,6 +74,9 @@ setBasket(prev => {
     //  }, [like])
    
     return <div className="card">
+    {!!discount && <span className="card__discount">
+                            {`-${discount}%`}
+                        </span>}
         <img src={pictures} alt= {name} style= {{width: "100px"}}/>
         
         {name}
@@ -88,4 +91,19 @@ setBasket(prev => {
             
         </span>
     </div>
+    // <div className="card">
+    //                 <div className="card__sticky card__sticky_type_top-left">
+    //                     {!!discount && <span className="card__discount">
+    //                         {`-${discount}%`}
+    //                     </span>}
+    //                 </div>
+    //                     <img src={pictures} alt={description} className="card-image" />
+    //                     <div className="card__desc">
+    //                         {/* {!!discount && <span className="card__old-price">{price} ₽</span>}
+    //                         {/* <span className={("card__price", { "card__price_type_discount": !!discount })}>{discount_price}₽</span> */}
+    //                         <span className="card__wight">{wight}</span>
+    //                         <span className="card__wight">в наличии: {stock} шт</span> */}
+    //                         <p className="card__name">{name}</p>
+    //                     </div>
+    //             </div >
 }

@@ -10,9 +10,7 @@
     justify-content: center;
     align-items: center;
     min-height: 290px;
-    overflow-y: visible;
-    background-color: rgb(235, 201, 120);
-    
+
     
     
 }
@@ -23,11 +21,4 @@
     color: crimson;
     
 
-}
-card__discount {
-    position: absolute;
-    background-color: red;
-    width: 20px;
-    height: 20px;
-    color: black;
 }

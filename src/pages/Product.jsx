@@ -2,12 +2,14 @@ import React, {useState, useEffect, useContext} from "react";
 import {Link, useParams, useNavigate} from "react-router-dom";
 import "./style.css";
 import {Trash3, Truck, Trophy, Tags} from "react-bootstrap-icons";
+
 import Review from "../components/Review/review";
 import Ctx from "../Ctx";
 
 export default ({}) => {
     const {id} = useParams();
     const [product, setProduct] = useState({});
+    const [message, setMessage] = useState({});
     // const [flag, changeFlag] = useState(!!users.length)
      const {api, PATH, user, setGoods} = useContext(Ctx);
      const navigate = useNavigate();
@@ -50,7 +52,7 @@ export default ({}) => {
                 }
             })
     }
-    console.log(product);
+    console.log(product.comments);
  return <>
  
 {product && product.author && product.author._id === user._id && <button 
@@ -58,7 +60,7 @@ onClick={remove}
 className="btn" 
 style={btnSt}><Trash3/>
 </button>}
-<Link to={PATH +"catalog"} className="btn">Назад</Link>
+<Link to={PATH +"catalog"} ><button className="btn">Назад</button></Link>
  <h1>{product.name || "Страница товара"}</h1>
  <div className="priceWrapper">
     <p>Артикул: {id}</p>
@@ -96,8 +98,10 @@ style={btnSt}><Trash3/>
 
  <h2>Отзывы</h2>
  <div className="reviews">
-    {product.reviews && product.reviews.length > 0 &&
+ {product.reviews && product.reviews.length > 0 && product.reviews.map((el, i) => <Review {...el} key={i}/>)}
+    {/* {product.reviews && product.reviews.length > 0 &&
     product.reviews.map((el, i) => <Review {...el} key={i}/>)}
+     */}
     
  </div>
  
